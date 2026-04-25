@@ -1,5 +1,5 @@
 import csv
-with open("product_catalog.csv", encoding='utf-8') as file:
+with open("data/raw/product_catalog.csv", encoding='utf-8') as file:
     reader = csv.DictReader(file)
     gross_inventory = list(reader)
 
@@ -12,7 +12,7 @@ def process_inventory(list_products):
 
 clean_inventory = process_inventory(gross_inventory)
 
-with open("priced_inventory.csv", mode = "w", encoding="utf-8", newline="") as output_file:
+with open("data/processed/priced_inventory.csv", mode = "w", encoding="utf-8", newline="") as output_file:
     columns=['name', 'sku','category','cost_price','sale_price']
     writer = csv.DictWriter(output_file, fieldnames=columns)
     
